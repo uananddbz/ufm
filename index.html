@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+<style>
+.c{text-align:center}.l{text-align:left}.r{text-align:right}.fl{float:left}.fr{float:right}*{margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}body{background:#fafafa}a{text-decoration:none;color:#07f}a:hover{text-decoration:underline}header{padding:.5em}.header{overflow:hidden;padding:.3em;background:#eaeaea;border-top:1px solid #ccc;border-bottom:1px solid #ccc}ul.nav{list-style:none;overflow:hidden;margin-left:.3em}ul.nav
+li{float:left;overflow:hidden}ul.nav li
+a{color:#000;font-weight:bold}ul.nav li:after{content:"/";color:#999}ul.nav li:last-child{}ul.nav li:last-child
+a{color:#777;cursor:default}ul.nav li:last-child:after{content:""}ul.nav li
+a{display:inline-block;padding:.3em;text-transform:uppercase;font-size:small}ul.list{list-style:none;overflow:hidden;background:white}ul.list
+li{padding:.5em;border-bottom:1px solid #ccc}ul.list.link
+li{padding:0}ul.list.link li
+a{padding:.5em;display:block}ul.list.link
+li.text{padding:.5em}.folder
+a{font-weight:bold}.file{}input{padding:.3em;border:1px
+solid #ccc;background:#fafafa}input:hover,input:focus{background:white}.muted{color:#aaa;}.size {color:#aaa;display:inline-block;float:right;}
+</style>
+<script src="jquery.min.js" type="text/javascript"></script>
+<script src="ufm.min.js"></script>
+<script>
+$("#loading").hide();
+$(document).ajaxSend(function(){
+$("#loading").fadeIn('fast');
+});
+
+$(document).ajaxStop(function(){
+$("#loading").fadeOut('fast');
+});
+
+$(document).ajaxError(function(){
+  alert("An error occurred!");
+});
+
+$(document).ready(function() {
+$('#my_fm').load_ufm('demo_folder');
+$('#my_fm1').load_ufm('.');
+});
+</script>
+</head>
+
+<body>
+<header><h1>u File Manager <img src="wait.gif" id="loading" alt="please wait" /></h1></header>
+
+<div id="my_fm">
+
+<div class="header">
+<input placeholder="Search" class="fr" id="search_file" type="text" />
+<ul id="nav" class="nav"></ul>
+
+</div>
+
+<ul class="list link" id="main">
+</ul>
+</div>
+
+<div id="my_fm1">
+
+<div class="header">
+<input placeholder="Search" class="fr" id="search_file" type="text" />
+<ul id="nav" class="nav"></ul>
+
+</div>
+
+<ul class="list link" id="main">
+</ul>
+</div>
+
+</body>
+</html>
